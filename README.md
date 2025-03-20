@@ -1,2 +1,2 @@
 # probability_visualizations
-Curricular for Match
+Visualizations for 8th grade math
