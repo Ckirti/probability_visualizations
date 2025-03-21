@@ -38,7 +38,7 @@ def animate_coin_flips_cumulative(num_flips, bias=0.5, placeholder=None):
           update(_)
         st.session_state.final_fig = fig #store the final figure.
         placeholder.pyplot(fig)
-        time.sleep(10)
+        #time.sleep(10)
         placeholder.empty()
 
     return ani
