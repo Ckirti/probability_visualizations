@@ -19,7 +19,7 @@ def animate_coin_flips(num_flips, bias=0.5):
         heads_count = sum(results)
         tails_count = len(results) - heads_count
         heads_counts.append(heads_count)
-        tails_counts.append(tails_count)
+        tails_counts.append(tails_counts)
         bars[0].set_height(heads_count)
         bars[1].set_height(tails_count)
         ax.set_title(f'Coin Flip Simulation (Bias={bias}, Flips: {len(results)})')
@@ -32,4 +32,16 @@ st.title("Animated Coin Flip Simulation")
 num_flips = st.slider("Number of Flips", 10, 500, 100)
 bias = st.slider("Bias (Probability of Heads)", 0.0, 1.0, 0.5)
 
-animate_coin_flips(num_flips, bias)
+# Initialize session state
+if 'simulation_started' not in st.session_state:
+    st.session_state.simulation_started = False
+
+# Start simulation automatically on first load
+if not st.session_state.simulation_started:
+    animate_coin_flips(num_flips, bias)
+    st.session_state.simulation_started = True
+
+# Add a button if you still want to allow restarting the simulation
+if st.button("Restart Simulation"):
+    st.session_state.simulation_started = False
+    st.rerun() #This is required to properly reset session state.
