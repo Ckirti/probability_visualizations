@@ -43,7 +43,7 @@ def animate_coin_flips_cumulative(num_flips, bias=0.5, placeholder=None):
 
     return ani
 
-st.title("Cumulative Coin Flip Animation with Persistence")
+st.title("Simple Coin Flip")
 num_flips = st.slider("Number of Flips", 100, 10000, 100)
 bias = st.slider("Bias (Probability of Heads)", 0.0, 1.0, 0.5)
 
