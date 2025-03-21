@@ -10,7 +10,7 @@ def animate_coin_flips_cumulative(num_flips, bias=0.5, placeholder=None):
     heads_counts = []
     tails_counts = []
 
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(6,4))
     bars = ax.bar(['Heads', 'Tails'], [0, 0], color=['skyblue', 'salmon'])
     ax.set_title(f'Coin Flip Simulation (Bias={bias})')
     ax.set_ylabel('Count')
