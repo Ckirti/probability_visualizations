@@ -27,6 +27,7 @@ def animate_coin_flips(num_flips, bias=0.5):
 
     ani = animation.FuncAnimation(fig, update, frames=num_flips, interval=50, repeat=False)
     st.pyplot(fig)
+    return ani #add this line.
 
 st.title("Animated Coin Flip Simulation")
 num_flips = st.slider("Number of Flips", 10, 500, 100)
@@ -38,10 +39,10 @@ if 'simulation_started' not in st.session_state:
 
 # Start simulation automatically on first load
 if not st.session_state.simulation_started:
-    animate_coin_flips(num_flips, bias)
+    st.session_state.animation = animate_coin_flips(num_flips, bias) #store the animation object.
     st.session_state.simulation_started = True
 
 # Add a button if you still want to allow restarting the simulation
 if st.button("Restart Simulation"):
     st.session_state.simulation_started = False
-    st.rerun() #This is required to properly reset session state.
+    st.rerun()
